@@ -115,7 +115,7 @@ foreach($val in $meta) {
 #Installer property gen
 
 $manifest["Installer"] = @{
-    Url = $installerUrl
+    URL = $installerUrl
     Type = "DLL"
     Checksum = $checksum.Hash
     ChecksumType = $checksum.Algorithm
