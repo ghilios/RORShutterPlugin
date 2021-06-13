@@ -138,7 +138,7 @@ function Format-Json([Parameter(Mandatory, ValueFromPipeline)][String] $json) {
     }) -Join "`n"
 }
 $json = ConvertTo-Json $manifest | Format-Json 
-$json | Out-File "manifest.json" 
+$json | Out-File "manifest.json" -Encoding Utf8
 Write-Output $json
 Write-Output "-------------"
 Write-Output "-------------"
