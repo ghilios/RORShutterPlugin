@@ -49,7 +49,7 @@ namespace MyPluginNamespace.MyPluginTestItem {
 
         /// <summary>
         /// The constructor marked with [ImportingConstructor] will be used to import and construct the object
-        /// General device interfaces can be added to the constructor and will be automatically populated on import
+        /// General device interfaces can be added to the constructor parameters and will be automatically injected on instantiation by the plugin loader
         /// </summary>
         /// <remarks>
         /// Available interfaces to be injected:
@@ -71,7 +71,11 @@ namespace MyPluginNamespace.MyPluginTestItem {
         ///     - IDomeMediator,
         ///     - IImageSaveMediator,
         ///     - ISwitchMediator,
-        ///     - IList of IDateTimeProvider
+        ///     - ISafetyMonitorMediator,
+        ///     - IApplicationMediator
+        ///     - IApplicationResourceDictionary
+        ///     - IFramingAssistantVM
+        ///     - IList<IDateTimeProvider>
         /// </remarks>
         [ImportingConstructor]
         public MyPluginTestItem() {
