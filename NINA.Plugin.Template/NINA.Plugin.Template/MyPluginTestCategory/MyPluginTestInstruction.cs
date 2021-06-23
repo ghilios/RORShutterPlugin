@@ -15,7 +15,6 @@
 using Newtonsoft.Json;
 using NINA.Core.Model;
 using NINA.Core.Utility.Notification;
-using NINA.Sequencer;
 using NINA.Sequencer.SequenceItem;
 using System;
 using System.Collections.Generic;
@@ -26,11 +25,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MyPluginNamespace.MyPluginTestItem {
+namespace MyPlugin.MyPluginTestCategory {
 
     /// <summary>
-    /// This Item shows the basic principle on how to add a new Sequence Item to the N.I.N.A. sequencer via the plugin interface
-    /// For ease of use this item inherits the abstract SequenceItem which already handles most of the running logic, like logging, exception handling etc.
+    /// This Class shows the basic principle on how to add a new Sequence Instruction to the N.I.N.A. sequencer via the plugin interface
+    /// For ease of use this class inherits the abstract SequenceItem which already handles most of the running logic, like logging, exception handling etc.
     /// A complete custom implementation by just implementing ISequenceItem is possible too
     /// The following MetaData can be set to drive the initial values
     /// --> Name - The name that will be displayed for the item
@@ -39,13 +38,13 @@ namespace MyPluginNamespace.MyPluginTestItem {
     ///
     /// If the item has some preconditions that should be validated, it shall also extend the IValidatable interface and add the validation logic accordingly.
     /// </summary>
-    [ExportMetadata("Name", "Plugin Template Item")]
+    [ExportMetadata("Name", "Plugin Template Instruction")]
     [ExportMetadata("Description", "This item will just show a notification and is just there to show how the plugin system works")]
     [ExportMetadata("Icon", "Plugin_Test_SVG")]
-    [ExportMetadata("Category", "Plugin")]
+    [ExportMetadata("Category", "MyPluginTestCategory")]
     [Export(typeof(ISequenceItem))]
     [JsonObject(MemberSerialization.OptIn)]
-    public class MyPluginTestItem : SequenceItem {
+    public class MyPluginTestInstruction : SequenceItem {
 
         /// <summary>
         /// The constructor marked with [ImportingConstructor] will be used to import and construct the object
@@ -78,8 +77,8 @@ namespace MyPluginNamespace.MyPluginTestItem {
         ///     - IList<IDateTimeProvider>
         /// </remarks>
         [ImportingConstructor]
-        public MyPluginTestItem() {
-            Text = Properties.Settings.Default.DefaultNotificationMessage;
+        public MyPluginTestInstruction() {
+            Text = MyPluginNamespace.Properties.Settings.Default.DefaultNotificationMessage;
         }
 
         /// <summary>
@@ -109,7 +108,7 @@ namespace MyPluginNamespace.MyPluginTestItem {
         /// </summary>
         /// <returns></returns>
         public override object Clone() {
-            return new MyPluginTestItem() {
+            return new MyPluginTestInstruction() {
                 Icon = Icon,
                 Text = Text,
                 Name = Name,
@@ -123,7 +122,7 @@ namespace MyPluginNamespace.MyPluginTestItem {
         /// </summary>
         /// <returns></returns>
         public override string ToString() {
-            return $"Category: {Category}, Item: {nameof(MyPluginTestItem)}, Text: {Text}";
+            return $"Category: {Category}, Item: {nameof(MyPluginTestInstruction)}, Text: {Text}";
         }
     }
 }

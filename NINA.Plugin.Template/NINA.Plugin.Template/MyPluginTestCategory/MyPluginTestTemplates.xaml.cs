@@ -20,7 +20,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace MyPluginNamespace.MyPluginTestItem {
+namespace MyPlugin.MyPluginTestCategory {
 
     [Export(typeof(ResourceDictionary))]
     public partial class PluginTestItemTemplate : ResourceDictionary {

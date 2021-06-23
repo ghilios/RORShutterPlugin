@@ -24,11 +24,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("MyPluginProduct")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 
-// Setting ComVisible to false makes the types in this assembly not visible
-// to COM components.  If you need to access a type in this assembly from
-// COM, set the ComVisible attribute to true on that type.
-[assembly: ComVisible(false)]
-
 // The minimum Version of N.I.N.A. that this plugin is compatible with
 [assembly: AssemblyMetadata("MinimumApplicationVersion", "1.11.0.1092")]
 
@@ -51,17 +46,20 @@ using System.Runtime.InteropServices;
 //[Optional] A link that will show a log of all changes in between your plugin's versions
 [assembly: AssemblyMetadata("ChangelogURL", "https://bitbucket.org/Isbeorn/nina.plugin.template/commits/branch/master")]
 
-//[Optional] The featured logo that will be displayed in the plugin list next to the name
-[assembly: AssemblyMetadata("FeaturedImageURL", "https://nighttime-imaging.eu/wp-content/uploads/2019/02/Logo_Nina.png")]
-//[Optional] An example screenshot of your plugin in action
-[assembly: AssemblyMetadata("ScreenshotURL", "https://bitbucket.org/Isbeorn/nina.plugins/downloads/Starlock2.png")]
-//[Optional] An additional example screenshot of your plugin in action
-[assembly: AssemblyMetadata("AltScreenshotURL", "https://bitbucket.org/Isbeorn/nina.plugins/downloads/Instruction.png")]
+//[Optional] The url to a featured logo that will be displayed in the plugin list next to the name
+[assembly: AssemblyMetadata("FeaturedImageURL", "")]
+//[Optional] A url to an example screenshot of your plugin in action
+[assembly: AssemblyMetadata("ScreenshotURL", "")]
+//[Optional] An additional url to an example example screenshot of your plugin in action
+[assembly: AssemblyMetadata("AltScreenshotURL", "")]
 //[Optional] An in-depth description of your plugin
 [assembly: AssemblyMetadata("LongDescription", @"An in-depth description of your plugin")]
 
 
-
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
 // [Unused]
 [assembly: AssemblyConfiguration("")]
 // [Unused]
