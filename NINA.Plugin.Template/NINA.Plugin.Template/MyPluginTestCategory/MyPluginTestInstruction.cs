@@ -80,6 +80,9 @@ namespace MyPlugin.MyPluginTestCategory {
         public MyPluginTestInstruction() {
             Text = MyPluginNamespace.Properties.Settings.Default.DefaultNotificationMessage;
         }
+        public MyPluginTestInstruction(MyPluginTestInstruction copyMe) : this() {
+            CopyMetaData(copyMe);
+        }
 
         /// <summary>
         /// An example property that can be set from the user interface via the Datatemplate specified in PluginTestItem.Template.xaml
@@ -108,13 +111,7 @@ namespace MyPlugin.MyPluginTestCategory {
         /// </summary>
         /// <returns></returns>
         public override object Clone() {
-            return new MyPluginTestInstruction() {
-                Icon = Icon,
-                Text = Text,
-                Name = Name,
-                Category = Category,
-                Description = Description
-            };
+            return new MyPluginTestInstruction(this);
         }
 
         /// <summary>
