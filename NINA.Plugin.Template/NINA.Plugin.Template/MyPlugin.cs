@@ -1,4 +1,5 @@
-﻿using NINA.Plugin;
+﻿using MyPlugin.Properties;
+using NINA.Plugin;
 using NINA.Plugin.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,15 +21,20 @@ namespace MyPluginNamespace {
 
         [ImportingConstructor]
         public MyPlugin() {
+            if (Settings.Default.UpdateSettings) {
+                Settings.Default.Upgrade();
+                Settings.Default.UpdateSettings = false;
+                Settings.Default.Save();
+            }
         }
 
         public string DefaultNotificationMessage {
             get {
-                return Properties.Settings.Default.DefaultNotificationMessage;
+                return Settings.Default.DefaultNotificationMessage;
             }
             set {
-                Properties.Settings.Default.DefaultNotificationMessage = value;
-                Properties.Settings.Default.Save();
+                Settings.Default.DefaultNotificationMessage = value;
+                Settings.Default.Save();
             }
         }
     }

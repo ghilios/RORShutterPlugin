@@ -12,6 +12,7 @@
 
 #endregion "copyright"
 
+using MyPlugin.Properties;
 using Newtonsoft.Json;
 using NINA.Core.Model;
 using NINA.Core.Utility.Notification;
@@ -78,7 +79,7 @@ namespace MyPlugin.MyPluginTestCategory {
         /// </remarks>
         [ImportingConstructor]
         public MyPluginTestInstruction() {
-            Text = MyPluginNamespace.Properties.Settings.Default.DefaultNotificationMessage;
+            Text = Settings.Default.DefaultNotificationMessage;
         }
         public MyPluginTestInstruction(MyPluginTestInstruction copyMe) : this() {
             CopyMetaData(copyMe);
