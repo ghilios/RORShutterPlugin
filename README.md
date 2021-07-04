@@ -105,7 +105,7 @@ The interface that defines the *plugin meta data*. Each plugin requires an expor
 ## Available Base Classes
 
 The N.I.N.A. packages provide a set of base classes that can be inherited from, that will already handle most of the boilerplate required for the exportable interfaces.  
-Each base class can provide a set of overridable methods as well as some methods that still are mandatory to be implemented in the child class.
+Each base class provides a set of overridable methods as well as some methods that need to be implemented in the child class.
 
 ### NINA.Plugin.PluginManifest
 

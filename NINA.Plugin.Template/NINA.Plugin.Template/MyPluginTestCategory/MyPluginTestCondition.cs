@@ -76,9 +76,10 @@ namespace MyPlugin.MyPluginTestCategory {
         /// <summary>
         /// Once this check returns false, the condition will cause its parent instruction set to skip the rest and proceed with the next set
         /// </summary>
+        /// <param name="previousItem"></param>
         /// <param name="nextItem"></param>
         /// <returns></returns>
-        public override bool Check(ISequenceItem nextItem) {
+        public override bool Check(ISequenceItem previousItem, ISequenceItem nextItem) {
             return IsTruthy;
         }
 

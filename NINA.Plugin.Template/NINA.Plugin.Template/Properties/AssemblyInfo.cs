@@ -25,7 +25,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 
 // The minimum Version of N.I.N.A. that this plugin is compatible with
-[assembly: AssemblyMetadata("MinimumApplicationVersion", "1.11.0.1092")]
+[assembly: AssemblyMetadata("MinimumApplicationVersion", "1.11.0.1104")]
 
 // The license your plugin code is using
 [assembly: AssemblyMetadata("License", "MPL-2.0")]
@@ -37,8 +37,8 @@ using System.Runtime.InteropServices;
 
 // The following attributes are optional for the official manifest meta data
 
-//[Optional] Your plugin homepage - omit if not applicaple
-[assembly: AssemblyMetadata("Homepage", "https://example.com/")]
+//[Optional] Your plugin homepage URL - omit if not applicaple
+[assembly: AssemblyMetadata("Homepage", "")]
 
 //[Optional] Common tags that quickly describe your plugin
 [assembly: AssemblyMetadata("Tags", "Template,Sequencer")]

@@ -94,9 +94,10 @@ namespace MyPlugin.MyPluginTestCategory {
         /// 
         /// For this example the trigger will fire when the random number generator generates an even number
         /// </summary>
+        /// <param name="previousItem"></param>
         /// <param name="nextItem"></param>
         /// <returns></returns>
-        public override bool ShouldTrigger(ISequenceItem nextItem) {
+        public override bool ShouldTrigger(ISequenceItem previousItem, ISequenceItem nextItem) {
             return random.Next(0, 1000) % 2 == 0;
         }
 
