@@ -102,6 +102,10 @@ The interface that defines the *plugin meta data*. Each plugin requires an expor
 
 *Defines an instruction set for the advanced sequencer*
 
+### IDockableVM
+
+*Defines a dockable panel for the imaging tab*
+
 ## Available Base Classes
 
 The N.I.N.A. packages provide a set of base classes that can be inherited from, that will already handle most of the boilerplate required for the exportable interfaces.  
@@ -128,6 +132,12 @@ All required properties from the interface IPluginManifest will then be automati
 ### NINA.Sequencer.SequenceContainer
 
 *Implements ISequenceContainer*
+
+### NINA.WPF.Base.DockableVM
+
+*Implements IDockableVM*
+
+Wether the dock panel button to hide/show the panel is added to the Info or the Tool side is driven by the "IsTool" property. When true it is considered a tool pane, when false it is added to the info panels.
 
 ## Constructor Injection
 
@@ -210,7 +220,9 @@ Furthermore to be imported correctly by the application the ResourceDictionary w
 
 ### Instruction Mini Template
 
-Inside the imaging tab, there is a compact version of the advanced sequencer. Each sequence entity can define its minified version in a special datatemplate. This datatemplate has to follow a specific naming pattern `<Fully Qualified EntityDataType TypeName>_Mini`. For example if your fully qualified entity is called "MyAwesomePluginNamespace.MyAwesomeInstruction" the datatemplate key should be `MyAwesomePluginNamespace.MyAwesomeInstruction_Mini`.  
+Inside the imaging tab, there is a compact version of the advanced sequencer. Each sequence entity can define its minified version in a special datatemplate. 
+This datatemplate has to follow a specific naming pattern `<Fully Qualified EntityDataType TypeName>_Mini`. 
+For example if your fully qualified entity is called "MyAwesomePluginNamespace.MyAwesomeInstruction" the datatemplate key should be `MyAwesomePluginNamespace.MyAwesomeInstruction_Mini`.  
 Furthermore to be imported correctly by the application the ResourceDictionary where this DataTemplate is defined must add the correct export in the code behind using the MEF attribute `[Export(typeof(ResourceDictionary))]`.
 
 ```xml
@@ -222,6 +234,21 @@ Furthermore to be imported correctly by the application the ResourceDictionary w
                 </StackPanel>
             </mini:MiniSequenceItem.SequenceItemContent>
         </mini:MiniSequenceItem>
+    </DataTemplate>
+```
+
+### Imaging Tab Dockable Template
+
+Inside the imaging tab new dockable windows can be defined. For each IDockableVM interface that is exported a new panel will be available. To assign the correct ui template to it a special datatemplate needs to be exported. 
+This datatemplate has to follow a specific naming pattern `<Fully Qualified DockableVMDataType TypeName>_Dockable`. 
+For example if your fully qualified entity is called "MyAwesomePluginNamespace.MyAwesomeDockableVM" the datatemplate key should be `MyAwesomePluginNamespace.MyAwesomeDockableVM_Dockable`.  
+Furthermore to be imported correctly by the application the ResourceDictionary where this DataTemplate is defined must add the correct export in the code behind using the MEF attribute `[Export(typeof(ResourceDictionary))]`.
+
+```xml
+    <DataTemplate x:Key="<Fully Qualified DockableVMDataType TypeName>_Dockable">
+        <Grid>
+            <!-- Your dock panel interface-->
+        </Grid>
     </DataTemplate>
 ```
 
