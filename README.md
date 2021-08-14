@@ -168,15 +168,18 @@ The following interfaces can be injected:
         - *IApplicationResourceDictionary*: Retrieve application resources with this dictionary  
         - *IFramingAssistantVM*: Interact with the framing assistant using this instance  
         - *IList&lt;IDateTimeProvider&gt;*: A list of providers to get DateTimes for various astronomical events like dusk/dawn/meridian etc.  
+        - *IPlateSolverFactory*: A factory to create plate solver instances
+        - *IWindowServiceFactory*: A service to create IWindowService instances
 
 Example:
 
 ```csharp
 [Exports(ISequenceItem)]
 public class MyPluginItem : SequenceItem {
-
     IProfileService profileService;
     ICameraMediator cameraMediator;
+
+    [ImportingConstructor]
     MyPluginItem(IProfileService profileService, ICameraMediator cameraMediator) {
         this.profileService = profileService;
         this.cameraMediator = cameraMediator;
