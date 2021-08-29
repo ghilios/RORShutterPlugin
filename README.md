@@ -7,6 +7,12 @@ This repository contains examples and guidelines on how to develop a plugin for 
 The plugins for N.I.N.A. are C# class libraries, that expose certain classes to be imported by the application using the [Managed Extensibility Framework (MEF)](https://docs.microsoft.com/en-us/dotnet/framework/mef/).
 Currently plugins are capable to extend the advanced sequencer's functionality by creating new instructions, instruction sets, triggers or conditions.
 
+## Important Topics to consider
+### Namespaces and Type names
+
+⚠️ Once a plugin is published the namespaces and type names of the contained classes **are highly recommended to not change**.⚠️  
+The reason for this is that with saving of sequences a JSON file will be generated. This JSON file will contain the fully qualified type name for each instruction. So if a namespace or type name will change for a plugin and someone will try to load a sequence that contains an instruction from a previous version of that plugin, the deserializer will fail to locate the instruction, due to looking for the old name and just insert an unknown instruction.
+
 ## Plugin Meta Data
 
 Each plugin must implement a set of assembly attributes inside the AssemblyInfo.cs to expose the necessary meta data for a plugin to be correctly identified by N.I.N.A.
