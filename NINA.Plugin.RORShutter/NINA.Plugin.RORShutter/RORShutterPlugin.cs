@@ -1,4 +1,4 @@
-﻿using MyPlugin.Properties;
+﻿using NINA.Plugin.RORShutter.Properties;
 using NINA.Plugin;
 using NINA.Plugin.Interfaces;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyPluginNamespace {
+namespace NINA.Plugin.RORShutter {
     /// <summary>
     /// This class exports the IPluginManifest interface and will be used for the general plugin information and options
     /// The base class "PluginBase" will populate all the necessary Manifest Meta Data out of the AssemblyInfo attributes. Please fill these accoringly
@@ -17,10 +17,10 @@ namespace MyPluginNamespace {
     /// The user interface for the settings will be defined by a DataTemplate with the key having the naming convention "<MyPlugin.Name>_Options" where MyPlugin.Name corresponds to the AssemblyTitle - In this template example it is found in the Options.xaml
     /// </summary>
     [Export(typeof(IPluginManifest))]
-    public class MyPlugin : PluginBase {
+    public class RORShutterPlugin : PluginBase {
 
         [ImportingConstructor]
-        public MyPlugin() {
+        public RORShutterPlugin() {
             if (Settings.Default.UpdateSettings) {
                 Settings.Default.Upgrade();
                 Settings.Default.UpdateSettings = false;
@@ -28,6 +28,7 @@ namespace MyPluginNamespace {
             }
         }
 
+        /*
         public string DefaultNotificationMessage {
             get {
                 return Settings.Default.DefaultNotificationMessage;
@@ -37,5 +38,6 @@ namespace MyPluginNamespace {
                 Settings.Default.Save();
             }
         }
+        */
     }
 }
